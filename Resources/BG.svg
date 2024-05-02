@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="1280"
+   height="720"
+   viewBox="0 0 1280 720"
+   sodipodi:docname="BG.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   inkscape:export-filename="DeathBoxes.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.95169366"
+     inkscape:cx="1519.9219"
+     inkscape:cy="636.23414"
+     inkscape:window-width="1920"
+     inkscape:window-height="1111"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Platforms"
+     id="g1"
+     style="display:inline">
+    <image
+       width="4289.3716"
+       height="720"
+       preserveAspectRatio="none"
+       xlink:href="BG.png"
+       id="image1"
+       x="0"
+       y="0" />
+    <rect
+       style="display:inline;opacity:0.75;fill:#000000"
+       id="rect1"
+       width="100"
+       height="100"
+       x="2181.332"
+       y="564.58972"
+       inkscape:label="Box" />
+    <path
+       style="display:inline;opacity:1;fill:#554400"
+       d="M -4.2209398,639.47238 H 440.03298 V 585.6554 h 80.19785 v -50.65128 h 98.13685 132.95961 v 56.98269 h 31.65705 v 122.71228 h 97.21517 v 15.82853 62.09893 H 1462.5556 V 531.83842 h 718.6151 V 848.4089 H -4.2209398 -158.28524 V 4.2209398 H 2.1104699 Z"
+       id="path1"
+       inkscape:label="Ground"
+       sodipodi:nodetypes="cccccccccccccccccccccc" />
+    <path
+       style="opacity:1;fill:#005500"
+       d="m 952.87716,531.83842 h 92.86064 v 21.1047 h -93.91587 z"
+       id="path2"
+       inkscape:label="Platforn" />
+    <path
+       style="opacity:1;fill:#005500"
+       d="m 1253.5639,531.39242 h 92.8607 v 21.1047 h -93.9159 z"
+       id="path2-2"
+       inkscape:label="Platform2" />
+    <path
+       style="opacity:1;fill:#504416"
+       d="m 2399.8846,845.53208 v -309.0873 h 139.6836 v 309.0873 h 203.5816 V 533.47279 h 144.1417 V 845.53208 H 3099.789 V 533.47279 h 135.2257 v 310.5733 h 190.2075 v -312.0593 h 359.6112 V 1092.2075 H 2398.3986 Z"
+       id="path3" />
+  </g>
+</svg>
