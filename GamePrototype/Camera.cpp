@@ -6,6 +6,8 @@ Camera::Camera(float windowWidth, float windowHeight, const Rectf& objectRect, f
     m_Scale{ scale }
 {
     m_CameraRect = Rectf{ 0,0,windowWidth / scale, windowHeight / scale };
+    m_OriginalCR = m_CameraRect;
+    m_OriginalOR = objectRect;
 }
 
 Camera::Camera()
@@ -62,6 +64,8 @@ void Camera::UpdateTranslationCamera(const Point2f& posObject)
     }
 }
 
+
+
 Rectf Camera::GetCameraRect() const
 {
     return m_CameraRect;
@@ -70,4 +74,12 @@ Rectf Camera::GetCameraRect() const
 Rectf Camera::GetObjectRect() const
 {
     return m_ObjectRect;
+}
+
+void Camera::SetScale(float scale)
+{
+    m_ObjectRect = Rectf{ m_OriginalOR.left / scale, m_OriginalOR.bottom / scale, m_OriginalOR.width / scale, m_OriginalOR.height / scale };
+    m_CameraRect = Rectf{ m_OriginalCR.left / scale, m_OriginalCR.bottom / scale, m_OriginalCR.width / scale, m_OriginalCR.height / scale };
+
+    m_Scale = scale;
 }

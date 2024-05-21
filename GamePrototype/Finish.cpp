@@ -43,3 +43,8 @@ bool Finish::GetFinished() const
 {
 	return m_IsFinished;
 }
+
+void Finish::Reset()
+{
+	m_IsFinished = false;
+}

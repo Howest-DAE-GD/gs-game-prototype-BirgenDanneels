@@ -18,5 +18,7 @@ public:
 
 	Rectf GetHitbox() const;
 	bool GetFinished() const;
+
+	void Reset();
 };
 

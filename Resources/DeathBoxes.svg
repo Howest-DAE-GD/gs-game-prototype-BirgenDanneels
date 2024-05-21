@@ -27,24 +27,29 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.33647452"
-     inkscape:cx="2145.7791"
-     inkscape:cy="279.36736"
-     inkscape:window-width="1564"
-     inkscape:window-height="492"
-     inkscape:window-x="202"
-     inkscape:window-y="156"
-     inkscape:window-maximized="0"
+     inkscape:zoom="1.3458981"
+     inkscape:cx="4729.9272"
+     inkscape:cy="-124.45222"
+     inkscape:window-width="1920"
+     inkscape:window-height="1111"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <g
      id="layer1"
      inkscape:label="DeathBoxes"
-     style="display:none"
+     style="display:inline"
      inkscape:groupmode="layer">
     <path
-       style="display:none;opacity:1;fill:#800000;stroke-width:0.972598"
+       style="display:inline;opacity:1;fill:#800000;stroke-width:0.972598"
        d="M 2179.7964,750.4283 H 3425.2223 V 890.11198 H 2176.9851 Z"
        id="path4"
+       inkscape:label="DeathBox" />
+    <path
+       style="fill:#ff0000"
+       d="m 4317.5631,-5.2009881 h 557.2487 V 17.831959 h -556.5057 z"
+       id="path7"
        inkscape:label="DeathBox" />
   </g>
 </svg>

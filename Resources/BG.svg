@@ -28,9 +28,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="0.95169366"
-     inkscape:cx="1519.9219"
-     inkscape:cy="636.23414"
+     inkscape:zoom="1.3458981"
+     inkscape:cx="4729.9272"
+     inkscape:cy="-124.45222"
      inkscape:window-width="1920"
      inkscape:window-height="1111"
      inkscape:window-x="-9"
@@ -43,21 +43,13 @@
      id="g1"
      style="display:inline">
     <image
-       width="4289.3716"
-       height="720"
+       width="5812.9712"
+       height="1049.9381"
        preserveAspectRatio="none"
        xlink:href="BG.png"
        id="image1"
        x="0"
-       y="0" />
-    <rect
-       style="display:inline;opacity:0.75;fill:#000000"
-       id="rect1"
-       width="100"
-       height="100"
-       x="2181.332"
-       y="564.58972"
-       inkscape:label="Box" />
+       y="-329.93811" />
     <path
        style="display:inline;opacity:1;fill:#554400"
        d="M -4.2209398,639.47238 H 440.03298 V 585.6554 h 80.19785 v -50.65128 h 98.13685 132.95961 v 56.98269 h 31.65705 v 122.71228 h 97.21517 v 15.82853 62.09893 H 1462.5556 V 531.83842 h 718.6151 V 848.4089 H -4.2209398 -158.28524 V 4.2209398 H 2.1104699 Z"
@@ -76,7 +68,21 @@
        inkscape:label="Platform2" />
     <path
        style="opacity:1;fill:#504416"
-       d="m 2399.8846,845.53208 v -309.0873 h 139.6836 v 309.0873 h 203.5816 V 533.47279 h 144.1417 V 845.53208 H 3099.789 V 533.47279 h 135.2257 v 310.5733 h 190.2075 v -312.0593 h 359.6112 V 1092.2075 H 2398.3986 Z"
-       id="path3" />
+       d="m 2399.8846,845.53208 v -309.0873 h 139.6836 v 309.0873 h 203.5816 V 651.47279 h 144.1417 V 845.53208 H 3099.789 V 657.47279 h 69.3336 l 1.0152,-78 h 64.8769 v 264.5733 h 190.2075 v -222.0593 h 178.0666 l -1.2894,-90 h 1160.834 V 1092.2075 H 2398.3986 Z"
+       id="path3"
+       sodipodi:nodetypes="cccccccccccccccccccccc" />
+    <path
+       style="fill:#ffcc00"
+       d="m 3657.7806,14.116968 h 214.7265 v -49.780886 h 199.1236 v -86.930802 h 245.9324 V 18.574957 h 79.5008 v -52.00988 h 61.6689 v 52.752879 h 58.6969 V -39.37891 h 71.3278 v 59.439864 h 123.3377 v -78.75782 h 90.6458 v 75.785827 h 72.8138 V -118.13673 h 80.9869 l 33.5904,-19.39344 h 78.6023 l 24.213,13.97938 h 70.8908 V -448.77097 H 3657.0376 Z"
+       id="path6"
+       inkscape:label="Stage" />
+    <rect
+       style="display:inline;opacity:0.75;fill:#000000"
+       id="rect1"
+       width="100"
+       height="100"
+       x="3677.6118"
+       y="-103.69257"
+       inkscape:label="Box" />
   </g>
 </svg>

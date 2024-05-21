@@ -5,6 +5,8 @@ private:
 
 	Rectf m_CameraRect;	//Can also just be a Poin2f
 	Rectf m_ObjectRect; //In this rect the object can move around
+	Rectf m_OriginalOR;
+	Rectf m_OriginalCR;
 	float m_Scale;
 
 public:
@@ -18,6 +20,6 @@ public:
 
 	Rectf GetCameraRect() const;
 	Rectf GetObjectRect() const;
-
+	void SetScale(float scale);
 };
 

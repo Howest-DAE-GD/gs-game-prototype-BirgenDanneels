@@ -41,3 +41,8 @@ Rectf Food::GetHitbox() const
 {
 	return m_Hitbox;
 }
+
+void Food::Reset()
+{
+	m_IsPickedUp = false;
+}

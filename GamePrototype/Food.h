@@ -22,5 +22,7 @@ public:
 	bool GetPickedUp() const;
 	Rectf GetHitbox() const;
 
+	void Reset();
+
 };
 
