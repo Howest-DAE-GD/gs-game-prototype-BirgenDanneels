@@ -57,5 +57,6 @@ public:
 	Point2f GetPos() const;
 
 	void Reset();
+	bool GetIsDead() const;
 };
 

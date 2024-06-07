@@ -13,12 +13,8 @@ Finish::Finish(Point2f pos, float radius)
 
 void Finish::Draw() const
 {
-
 	utils::SetColor(Color4f{ 0.f, 1.f, 0.f, 1.f });
 	utils::FillEllipse(m_Position.x, m_Position.y, m_Radius, m_Radius);
-
-	utils::SetColor(Color4f{ 0.3f, 0.7f, 0.f, 1.f });
-	utils::DrawRect(m_Hitbox);
 }
 
 bool Finish::HitFinish(Rectf playerHitbox)

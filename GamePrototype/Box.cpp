@@ -4,7 +4,14 @@
 
 void Box::Update(float elapsedSec, const std::vector<std::vector<Point2f>>& SVGground, const std::vector<std::vector<Point2f>>& SVGDeath, const Rectf& Door)
 {
+	m_PickedUpFoodTextTimer += elapsedSec;
 	if (m_IsDead) return;
+
+	if (m_PickedUpFoodTextTimer > 2.f)
+	{
+		m_PickedUpFoodTextTimer = 0;
+		m_PickedUpFood = false;
+	}
 
 	DoorCollision(Door);
 	DecreaseFood(elapsedSec);
@@ -27,29 +34,71 @@ void Box::Draw() const
 {
 	if (m_IsDead) return;
 
-	utils::SetColor(Color4f{ 1.f, 0.f, 0.f, 1.f });
+	utils::SetColor(Color4f{ 0.588f, 0.435f, 0.839f, 1.f });
 	utils::FillRect(m_TransformedHitbox);
 
 	const Rectf foodBar{ m_TransformedHitbox.left, m_TransformedHitbox.bottom + m_TransformedHitbox.height + 10.f, m_Food / 100.f * m_Hitbox.width, 10.f };
 	utils::SetColor(Color4f{ 1.f, 0.75f, 0.75f, 1.f });
 	utils::FillRect(foodBar);
 
+	if (m_InSwitchZone)
+	{
+		const Rectf dstnRectE{ foodBar.left, foodBar.bottom + foodBar.height + 10.f, m_TransformedHitbox.width, m_pPressE->GetHeight() / m_pPressE->GetWidth() * m_TransformedHitbox.width };
+		utils::SetColor(Color4f{ 0.f, 0.f, 0.f, 0.5f });
+		utils::FillRect(dstnRectE);
+		m_pPressE->Draw(dstnRectE);
+	}
+
+	if (m_PickedUpFood)
+	{
+		const Rectf dstnRectFood{ foodBar.left + m_TransformedHitbox.width * 1.25f, foodBar.bottom + foodBar.height * 3.f, m_TransformedHitbox.width, m_GotFoodText->GetHeight() / m_GotFoodText->GetWidth() * m_TransformedHitbox.width };
+		utils::SetColor(Color4f{ 0.f, 0.f, 0.f, 0.5f });
+		utils::FillRect(dstnRectFood);
+		m_GotFoodText->Draw(dstnRectFood);
+	}
+
+}
+
+void Box::DrawFoodBar() const
+{
+	if (m_ControllingFriend)
+	{
+		float scale{ 5.f };
+		const Rectf foodBar{ 0, 0, (m_Food / 100.f * m_Hitbox.width) * scale, 10.f * scale};
+		const Rectf foodBar100{ 0, 0, m_Hitbox.width * scale, 10.f * scale };
+
+		const Rectf TextRect{ 0,0,  m_PlayerHealthText->GetWidth() / m_PlayerHealthText->GetHeight() * foodBar.height,foodBar.height };
+		const Rectf TextDstnRect{ ((scale* m_Hitbox.width) - TextRect.width) / 2.f, 0, TextRect.width, TextRect.height};
+		//const Rectf TextSrcRect{ 0,0,  m_PlayerHealthText->GetWidth() * (m_Food / 100.f), m_PlayerHealthText->GetHeight()};
+
+		utils::SetColor(Color4f{ 1.f, 0.75f, 0.75f, 1.f });
+		utils::FillRect(foodBar);
+		utils::SetColor(Color4f{ 0.f, 0.f, 0.f, 1.f });
+		utils::DrawRect(foodBar100, scale);
+		m_PlayerHealthText->Draw(TextDstnRect);
+	}
 }
 
 void Box::AddFood(int value)
 {
 	m_Food += value;
 	if (m_Food > 100) m_Food = 100;
+
+	m_PickedUpFood = true;
+	m_PickedUpFoodTextTimer = 0;
 }
 
 Rectf Box::GetHitbox() const
 {
 	return m_TransformedHitbox;
 }
-
 Point2f Box::GetPos() const
 {
 	return Point2f{m_TransformedHitbox.left, m_TransformedHitbox.bottom};
+}
+bool Box::GetIsDead() const
+{
+	return m_IsDead;
 }
 
 void Box::Reset()
@@ -58,13 +107,18 @@ void Box::Reset()
 	m_Position.y = m_Hitbox.bottom;
 
 	m_IsDead = false;
-	m_NOFOODLOSS = false;
+	m_ControllingFriend = false;
 	m_Food = 100.f;
 }
 
-void Box::EnableFoodloss(bool yes)
+void Box::SetControllingFriend(bool yes)
 {
-	m_NOFOODLOSS = !yes;
+	m_ControllingFriend = !yes;
+}
+
+void Box::SetInSwitchZone(bool inZone)
+{
+	m_InSwitchZone = inZone;
 }
 
 void Box::MoveLeft(float elapsedSec)
@@ -430,11 +484,9 @@ void Box::ClipToEdge(const utils::HitInfo& hitInfo1, const utils::HitInfo& hitIn
 
 void Box::DecreaseFood(float elapsedSec)
 {
-	if (m_NOFOODLOSS)return;
-
-	const float foodPerSec{ 20.f };
+	float foodPerSec{ 20.f };
+	if (m_ControllingFriend)foodPerSec /= 4.f;
 	const float foodDecrease{ foodPerSec * elapsedSec };
-
 	m_Food -= foodDecrease;
 
 	std::cout << m_Food << "\n";
@@ -450,12 +502,21 @@ void Box::DecreaseFood(float elapsedSec)
 Box::Box(const Point2f& startPos, const Vector2f& walkVelocity)
 	:m_Position{ startPos },
 	m_WalkAndJumpVelocity{ walkVelocity },
-	m_IsJumping{ false }, m_IsMoving{ false }, m_IsDead{false}, m_NOFOODLOSS{false}, m_OnPlatform{false},
+	m_IsJumping{ false }, m_IsMoving{ false }, m_IsDead{ false }, m_ControllingFriend{ false }, m_OnPlatform{ false }, m_InSwitchZone{false},
 	m_OnGround{ true },
-	m_Food{100}
+	m_Food{ 100 }, m_PickedUpFood{ false }, m_PickedUpFoodTextTimer{0}
 {
 	m_Hitbox = Rectf{ startPos.x, startPos.y, 100.f, 100.f };
 	m_TransformedHitbox = Rectf{ startPos.x, startPos.y, m_Hitbox.width, m_Hitbox.height };
+
+	TTF_Init();
+
+	//extern DECLSPEC TTF_Font* SDLCALL TTF_OpenFont(const char* file, int ptsize);
+
+	TTF_Font* font{TTF_OpenFont("ShapeBitRegular.otf", 100)};
+	m_pPressE = new Texture{ std::string{"Press 'E'"},font, Color4f{1.f,1.f,1.f,1.f} };
+	m_GotFoodText = new Texture{ std::string{"+50 food!"},font, Color4f{1.f,1.f,1.f,1.f} };
+	m_PlayerHealthText = new Texture{ std::string{"Player Food"},font, Color4f{1.f,1.f,1.f,1.f} };
 }
 Box::~Box()
 {

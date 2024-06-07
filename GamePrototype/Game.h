@@ -31,17 +31,17 @@ public:
 	void ProcessMouseUpEvent( const SDL_MouseButtonEvent& e ) override;
 
 private:
-
+	//438
 	bool m_IsControllingFriend{ false };
 
-	Box m_Player1 { Point2f { 100, 200 }, Vector2f { 300, 1000 } };
-	Friend m_Friend{ Point2f {3675, 720 }, Vector2f { 300, 1000 } };
+	Box m_Player1 { Point2f { 220, 462 }, Vector2f { 300, 1000 } };
+	Friend m_Friend{ Point2f {3840, 1093 }, Vector2f { 300, 1000 } };
 
 	std::vector<Food> m_VectorFood;
-	Finish m_Finish{ Point2f{4750 ,205}, 30.f };
-	Rectf stageRect{ 5000 ,857, 60, 25 };
-	Rectf doorRect{ 4319 ,182, 100, 412 };
-	Button m_Stage1Button{ stageRect, doorRect };
+	Finish m_Finish{ Point2f{5500 ,670}, 30.f };
+	Rectf buttonRect{ 5165 ,1232, 60, 25 };
+	Rectf doorRect{ 4450 ,560, 100, 412 };
+	Button m_Stage1Button{ buttonRect, doorRect };
 
 	Rectf objectRect{GetViewPort().width * 2 / 5, GetViewPort().height / 3, GetViewPort().width / 5, GetViewPort().height / 10 };
 	float m_PlayerCameraScale{ 1.f };
@@ -51,7 +51,14 @@ private:
 	std::vector<std::vector<Point2f>> m_GroundSVGTest;
 	std::vector<std::vector<Point2f>> m_DeathBoxes;
 
-	SwitchZone m_Zone1{ Rectf{3600, 0, 400, 500} };
+	Texture* m_pBackground;
+	Texture* m_pFinishText;
+	Texture* m_pYouDied;
+	Texture* m_pFriendDiedText;
+
+	Texture* m_pRToResetText;
+
+	SwitchZone m_Zone1{ Rectf{3900, 560, 400, 500} };
 
 	void PickUpFood(); //should be in some manager class
 

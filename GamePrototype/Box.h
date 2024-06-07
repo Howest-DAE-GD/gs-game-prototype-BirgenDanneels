@@ -1,6 +1,7 @@
 #pragma once
 #include "utils.h"
 #include <vector>
+#include "Texture.h"
 
 class Box
 {
@@ -14,7 +15,8 @@ private:
 
 	bool m_OnGround;
 	bool m_OnPlatform;
-	bool m_NOFOODLOSS;
+	bool m_ControllingFriend;
+	bool m_InSwitchZone;
 
 	Point2f m_Position;
 	Vector2f m_WalkAndJumpVelocity;
@@ -24,6 +26,12 @@ private:
 
 	Rectf m_Hitbox;
 	Rectf m_TransformedHitbox;
+
+	Texture* m_pPressE;
+	Texture* m_GotFoodText;
+	Texture* m_PlayerHealthText;
+	bool m_PickedUpFood;
+	float m_PickedUpFoodTextTimer;
 
 	void ResetJump();
 
@@ -60,13 +68,16 @@ public:
 
 	void Update(float elapsedSec, const std::vector<std::vector<Point2f>>& SVGground, const std::vector<std::vector<Point2f>>& SVGDeath, const Rectf& Door);
 	void Draw() const;
+	void DrawFoodBar() const;
 
 	void AddFood(int value);
 
 	Rectf GetHitbox() const;
 	Point2f GetPos() const;
+	bool GetIsDead() const;
 
 	void Reset();
-	void EnableFoodloss(bool yes);
+	void SetControllingFriend(bool yes);
+	void SetInSwitchZone(bool inZone);
 };
 

@@ -377,3 +377,7 @@ void Friend::Reset()
 	m_Position.y = m_Hitbox.bottom;
 }
 
+bool Friend::GetIsDead() const
+{
+	return m_IsDead;
+}

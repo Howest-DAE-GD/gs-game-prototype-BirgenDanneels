@@ -15,11 +15,8 @@ void Food::Draw() const
 {
 	if (m_IsPickedUp)return;
 
-	utils::SetColor(Color4f{ 0.f, 1.f, 1.f, 1.f });
+	utils::SetColor(Color4f{ 0.467f, 0.62f, 0.796f, 1.f });
 	utils::FillEllipse(m_Position.x, m_Position.y, m_Radius, m_Radius);
-
-	utils::SetColor(Color4f{ 0.f, 0.f, 1.f, 1.f });
-	utils::DrawRect(m_Hitbox);
 
 }
 
